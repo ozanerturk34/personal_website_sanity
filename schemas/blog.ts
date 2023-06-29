@@ -14,6 +14,7 @@ export const blogSchema = {
       type: 'image',
     },
     {name: 'date', title: 'Date', type: 'datetime'},
+    {name: 'author', title: 'Author', type: 'reference', to: [{type: 'author'}]},
     {
       name: 'slug',
       title: 'Slug',
