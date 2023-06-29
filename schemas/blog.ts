@@ -5,13 +5,19 @@ export const blogSchema = {
   fields: [
     {
       name: 'title',
-      type: 'string',
       title: 'Title',
+      type: 'string',
     },
     {
+      name: 'thumbnail',
+      title: 'Thumbnail',
+      type: 'image',
+    },
+    {name: 'date', title: 'Date', type: 'datetime'},
+    {
       name: 'slug',
-      type: 'slug',
       title: 'Slug',
+      type: 'slug',
     },
   ],
 }
