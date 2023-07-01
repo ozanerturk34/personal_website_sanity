@@ -13,7 +13,43 @@ export const blogSchema = {
       name: 'thumbnail',
       title: 'Thumbnail',
       type: 'image',
+      fields: [
+        {type: 'text', name: 'alt', title: 'Alt', validation: (Rule: any) => Rule.required()},
+      ],
+      options: {
+        hotspot: true,
+      },
       validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        {type: 'block'},
+        {
+          type: 'image',
+          fields: [{type: 'text', name: 'alt', title: 'Alt'}],
+          options: {
+            hotspot: true,
+          },
+        },
+        {
+          type: 'code',
+          name: 'code',
+          title: 'Code',
+          options: {
+            language: 'typescript',
+            languageAlternatives: [
+              {title: 'Javascript', value: 'javascript'},
+              {title: 'Typescript', value: 'typescript'},
+              {title: 'HTML', value: 'html'},
+              {title: 'CSS', value: 'css'},
+            ],
+            withFilename: true,
+          },
+        },
+      ],
     },
     {name: 'date', title: 'Date', type: 'datetime', validation: (Rule: any) => Rule.required()},
     {

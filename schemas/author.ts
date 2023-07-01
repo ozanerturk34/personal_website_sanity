@@ -9,6 +9,17 @@ export const authorSchema = {
       type: 'string',
       validation: (Rule: any) => Rule.required(),
     },
-    {name: 'avatar', title: 'Avatar', type: 'image', validation: (Rule: any) => Rule.required()},
+    {
+      name: 'avatar',
+      title: 'Avatar',
+      type: 'image',
+      fields: [
+        {type: 'text', name: 'alt', title: 'Alt', validation: (Rule: any) => Rule.required()},
+      ],
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule: any) => Rule.required(),
+    },
   ],
 }
