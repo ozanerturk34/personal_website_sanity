@@ -1,4 +1,4 @@
-import {defineType, defineField, defineArrayMember} from 'sanity'
+import {defineType, defineField} from 'sanity'
 
 export const categorySchema = defineType({
   name: 'category',
@@ -18,15 +18,10 @@ export const categorySchema = defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
-      name: 'posts',
-      title: 'Posts',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{type: 'blog'}],
-        }),
-      ],
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
 })

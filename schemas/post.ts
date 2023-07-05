@@ -1,9 +1,9 @@
 import {defineType, defineField, defineArrayMember} from 'sanity'
 
-export const blogSchema = defineType({
-  name: 'blog',
+export const postSchema = defineType({
+  name: 'post',
   type: 'document',
-  title: 'Blog',
+  title: 'Post',
   fields: [
     defineField({
       name: 'title',
@@ -58,7 +58,7 @@ export const blogSchema = defineType({
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: [{type: 'author'}],
+      to: {type: 'author'},
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
@@ -66,6 +66,10 @@ export const blogSchema = defineType({
       title: 'Slug',
       type: 'slug',
       validation: (Rule: any) => Rule.required(),
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
     }),
     defineField({
       title: 'Categories',
