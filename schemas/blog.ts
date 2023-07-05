@@ -1,15 +1,17 @@
-export const blogSchema = {
+import {defineType, defineField, defineArrayMember} from 'sanity'
+
+export const blogSchema = defineType({
   name: 'blog',
   type: 'document',
   title: 'Blog',
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
       validation: (Rule: any) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'thumbnail',
       title: 'Thumbnail',
       type: 'image',
@@ -20,21 +22,21 @@ export const blogSchema = {
         hotspot: true,
       },
       validation: (Rule: any) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
       of: [
-        {type: 'block'},
-        {
+        defineArrayMember({type: 'block'}),
+        defineArrayMember({
           type: 'image',
           fields: [{type: 'text', name: 'alt', title: 'Alt'}],
           options: {
             hotspot: true,
           },
-        },
-        {
+        }),
+        defineArrayMember({
           type: 'code',
           name: 'code',
           title: 'Code',
@@ -48,22 +50,33 @@ export const blogSchema = {
             ],
             withFilename: true,
           },
-        },
+        }),
       ],
-    },
-    {name: 'date', title: 'Date', type: 'datetime', validation: (Rule: any) => Rule.required()},
-    {
+    }),
+    defineField({name: 'published_at', title: 'Published At', type: 'date'}),
+    defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
       to: [{type: 'author'}],
       validation: (Rule: any) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       validation: (Rule: any) => Rule.required(),
-    },
+    }),
+    defineField({
+      title: 'Categories',
+      name: 'categories',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{type: 'category'}],
+        }),
+      ],
+    }),
   ],
-}
+})

@@ -1,4 +1,5 @@
 import {authorSchema} from './author'
 import {blogSchema} from './blog'
+import {categorySchema} from './category'
 
-export const schemaTypes = [blogSchema, authorSchema]
+export const schemaTypes = [authorSchema, blogSchema, categorySchema]
