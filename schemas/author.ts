@@ -38,5 +38,11 @@ export const authorSchema = defineType({
       },
       validation: (Rule: any) => Rule.required(),
     }),
+    defineField({
+      name: 'about',
+      title: 'About',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    }),
   ],
 })
