@@ -16,7 +16,12 @@ export const postSchema = defineType({
       title: 'Thumbnail',
       type: 'image',
       fields: [
-        {type: 'text', name: 'alt', title: 'Alt', validation: (Rule: any) => Rule.required()},
+        defineField({
+          type: 'text',
+          name: 'alt',
+          title: 'Alt',
+          validation: (Rule: any) => Rule.required(),
+        }),
       ],
       options: {
         hotspot: true,
@@ -53,7 +58,12 @@ export const postSchema = defineType({
         }),
       ],
     }),
-    defineField({name: 'published_at', title: 'Published At', type: 'date'}),
+    defineField({
+      name: 'published_at',
+      title: 'Published At',
+      type: 'date',
+      validation: (Rule: any) => Rule.required(),
+    }),
     defineField({
       name: 'author',
       title: 'Author',
