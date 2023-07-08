@@ -59,7 +59,7 @@ export const postSchema = defineType({
       ],
     }),
     defineField({
-      name: 'published_at',
+      name: 'publishedAt',
       title: 'Published At',
       type: 'date',
       validation: (Rule: any) => Rule.required(),
