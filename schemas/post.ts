@@ -91,6 +91,7 @@ export const postSchema = defineType({
           to: [{type: 'category'}],
         }),
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
 })
