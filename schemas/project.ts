@@ -12,6 +12,16 @@ export const projectSchema = defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule: any) => Rule.required(),
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'string',
