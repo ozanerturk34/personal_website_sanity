@@ -8,7 +8,7 @@ export const resourceSchema = defineType({
     defineField({
       name: 'link',
       title: 'Link',
-      type: 'string',
+      type: 'url',
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
