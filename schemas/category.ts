@@ -23,5 +23,11 @@ export const categorySchema = defineType({
       type: 'string',
       validation: (Rule: any) => Rule.required(),
     }),
+    defineField({
+      name: 'color',
+      title: 'Color',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    }),
   ],
 })
